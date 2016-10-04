@@ -1,16 +1,17 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NUnit.Framework;
+using NUnit.Framework.Internal;
 
 namespace FirstFloor.Xcc.Test
 {
-    [TestClass]
+    [TestFixture]
     public class XmlTests
     {
-        [TestMethod]
+        [Test]
         public void TestInputShouldNotChange()
         {
             var xml =  @"
@@ -23,7 +24,7 @@ namespace FirstFloor.Xcc.Test
             TestXml(null, false, xml, xml);
         }
 
-        [TestMethod]
+        [Test]
         public void TestRemoveIgnorableContent()
         {
             var xml = @"
@@ -44,7 +45,7 @@ namespace FirstFloor.Xcc.Test
             TestXml(null, true, xml, expected);
         }
 
-        [TestMethod]
+        [Test]
         public void TestRootNotInDefaultNamespace()
         {
             var xml = @"
@@ -71,7 +72,7 @@ namespace FirstFloor.Xcc.Test
             TestXml("DEBUG", false, xml, expected);
         }
 
-        [TestMethod]
+        [Test]
         public void TestRootNotInDefaultNamespaceWithNoDefaultNamespace()
         {
             var xml = @"
@@ -96,7 +97,7 @@ namespace FirstFloor.Xcc.Test
             TestXml("DEBUG", false, xml, expected);
         }
 
-        [TestMethod]
+        [Test]
         public void TestRootNotInDefaultNamespaceWithDefaultNamespaceRemoveIgnorableContent()
         {
             var xml = @"
@@ -123,7 +124,7 @@ namespace FirstFloor.Xcc.Test
             TestXml("DEBUG", true, xml, expected);
         }
 
-        [TestMethod]
+        [Test]
         public void TestRootNotInDefaultNamespaceWithNoDefaultNamespaceRemoveIgnorableContent()
         {
             var xml = @"

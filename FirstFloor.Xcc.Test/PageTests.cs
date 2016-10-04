@@ -1,104 +1,105 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.IO;
 using System.Globalization;
+using NUnit.Framework;
+using NUnit.Framework.Internal;
 
 namespace FirstFloor.Xcc.Test
 {
-    [TestClass]
+    [TestFixture]
     public class PageTests
     {
-        [TestMethod]
+        [Test]
         public void TestMyPageWin81Debug()
         {
             TestXaml("WINDOWS_APP;DEBUG", false, "MyPage.xaml", "MyPage.Win81.Debug.expected.xaml");
         }
 
-        [TestMethod]
+        [Test]
         public void TestMyPageWin81DebugRemoveIgnorableContent()
         {
             TestXaml("WINDOWS_APP;DEBUG", true, "MyPage.xaml", "MyPage.Win81.Debug.RemoveIgnorableContent.expected.xaml");
         }
 
-        [TestMethod]
+        [Test]
         public void TestMyPageWP81Debug()
         {
             TestXaml("WINDOWS_PHONE_APP;DEBUG", false, "MyPage.xaml", "MyPage.WP81.Debug.expected.xaml");
         }
 
-        [TestMethod]
+        [Test]
         public void TestMyPageWP81DebugRemoveIgnorableContent()
         {
             TestXaml("WINDOWS_PHONE_APP;DEBUG", true, "MyPage.xaml", "MyPage.WP81.Debug.RemoveIgnorableContent.expected.xaml");
         }
 
-        [TestMethod]
+        [Test]
         public void TestMyPageWin81Release()
         {
             TestXaml("WINDOWS_APP;!DEBUG", false, "MyPage.xaml", "MyPage.Win81.Release.expected.xaml");
         }
 
-        [TestMethod]
+        [Test]
         public void TestMyPageWin81ReleaseRemoveIgnorableContent()
         {
             TestXaml("WINDOWS_APP;!DEBUG", true, "MyPage.xaml", "MyPage.Win81.Release.RemoveIgnorableContent.expected.xaml");
         }
 
-        [TestMethod]
+        [Test]
         public void TestMyPageWP81Release()
         {
             TestXaml("WINDOWS_PHONE_APP;!DEBUG", false, "MyPage.xaml", "MyPage.WP81.Release.expected.xaml");
         }
 
-        [TestMethod]
+        [Test]
         public void TestMyPageWP81ReleaseRemoveIgnorableContent()
         {
             TestXaml("WINDOWS_PHONE_APP;!DEBUG", true, "MyPage.xaml", "MyPage.WP81.Release.RemoveIgnorableContent.expected.xaml");
         }
 
-        [TestMethod]
+        [Test]
         public void TestXamarinContentPageAndroid()
         {
             TestXaml("__ANDROID__", false, "XamarinContentPage.xaml", "XamarinContentPage.android.expected.xaml");
         }
 
-        [TestMethod]
+        [Test]
         public void TestXamarinContentPageAndroidRemoveIgnorableContent()
         {
             TestXaml("__ANDROID__", true, "XamarinContentPage.xaml", "XamarinContentPage.android.expected.xaml");
         }
 
-        [TestMethod]
+        [Test]
         public void TestXamarinContentPageiOs()
         {
             TestXaml("__IOS__", false, "XamarinContentPage.xaml", "XamarinContentPage.ios.expected.xaml");
         }
 
-        [TestMethod]
+        [Test]
         public void TestXamarinContentPageiOsRemoveIgnorableContent()
         {
             TestXaml("__IOS__", true, "XamarinContentPage.xaml", "XamarinContentPage.ios.expected.xaml");
         }
 
-        [TestMethod]
+        [Test]
         public void TestXamarinContentPageWP()
         {
             TestXaml("WINDOWS_PHONE", false, "XamarinContentPage.xaml", "XamarinContentPage.wp.expected.xaml");
         }
 
-        [TestMethod]
+        [Test]
         public void TestXamarinContentPageWPRemoveIgnorableContent()
         {
             TestXaml("WINDOWS_PHONE", true, "XamarinContentPage.xaml", "XamarinContentPage.wp.expected.xaml");
         }
 
-        [TestMethod]
+        [Test]
         public void TestXamarinContentPageNoSymbols()
         {
             TestXaml(null, false, "XamarinContentPage.xaml", "XamarinContentPage.nosymbols.expected.xaml");
         }
 
-        [TestMethod]
+        [Test]
         public void TestXamarinContentPageNoSymbolsRemoveIgnorableContent()
         {
             TestXaml(null, true, "XamarinContentPage.xaml", "XamarinContentPage.nosymbols.expected.xaml");
